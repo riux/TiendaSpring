@@ -1,7 +1,7 @@
 # TiendaSpring
 Ecommerce con Spring boot, hiberate, jpa, mysql, cecuryti
 <h1>Pasos para iniciar el proyecto </h1>
-1). Importar el proyecto maven a su ide (Eclipse recomendable).  
+1). Importar el proyecto maven a su ide (Eclipse recomendable). </br>
 2). hacer un maven Update sobre el proyecto.  
 3). PARA EMPEZAR ES NECESARIO VER EL ARCHIVO application.yml.  
 4). Modificar la configuración de la base de datos "Nombre de  base de datos, usuario, contraseña".  

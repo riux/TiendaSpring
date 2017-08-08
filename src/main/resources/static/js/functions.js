@@ -102,9 +102,11 @@ function limpiarCampos() {
          success : function(result) {
            console.log("Exitoooo");
            location.assign("http://localhost:8080/compra/success");
+           sessionStorage.clear();
          },
          error : function(e) {
            console.log("ERROR: ", e);
+           sessionStorage.clear();
            location.assign("http://localhost:8080/compra/success");
          }
 });

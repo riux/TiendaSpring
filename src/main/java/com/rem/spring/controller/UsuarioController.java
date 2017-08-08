@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ import com.rem.spring.service.impl.FileUploadService;
 import com.rem.spring.service.impl.UsuarioServiceImpl;
 
 @Controller
+@PreAuthorize("permitAll()")
 @RequestMapping("/usuario")
 public class UsuarioController {
 	

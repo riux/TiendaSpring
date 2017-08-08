@@ -2,7 +2,7 @@
 <html data-layout-decorate="~{fragments/layout2}">
 <head>
 <meta charset="UTF-8">
-<title>Carrito</title>
+<title>Comprar</title>
 </head>
 <body>
 
@@ -10,9 +10,9 @@
 
 	<div class="checkout">
 		<div class="container">
-			<h2>Contenido de su carrito de compras: <span>Productos</span></h2>
+<!-- 			<h2 th:text="${usuario.nombreUsuario}">Contenido de su carrito de compras: <span>Productos</span></h2> -->
 
-			<form th:action="@{/compra/comprar}" method="GET" >
+			<form id="compraform" th:object="${usuario}">
 				<div class="checkout-right">
 					<table class="timetable_sub">
 						<thead>
@@ -34,12 +34,26 @@
 					</table>
 				</div>
 				</br>
-				<input type="submit" class="btn btn-primary"  value="Pagar" />
+<!-- 				Puntos: <input type="text" placeholder="Usuario..." th:field="${usuario.punto}"> -->
+				</br>
+				<input type="submit" class="btn btn-primary"  value="Comprar" />
 			</form>
-			<div class="checkout-right-basket">
+			<div class="checkout-left">
+				<div class="checkout-left-basket">
+					<h4>Contenido de su carrito</h4>
+					<ul>
+						<li>Product1 <i>-</i> <span>$15.00 </span></li>
+						<li>Product2 <i>-</i> <span>$25.00 </span></li>
+						<li>Product3 <i>-</i> <span>$29.00 </span></li>
+						<li>Total Service Charges <i>-</i> <span>$15.00</span></li>
+						<li>Total <i>-</i> <span>$84.00</span></li>
+					</ul>
+				</div>
+				<div class="checkout-right-basket">
 					<a th:href="@{/index}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>¿Continuar Comprando?</a>
 				</div>
 				<div class="clearfix"> </div>
+			</div>
 		</div>
 	</div>
 

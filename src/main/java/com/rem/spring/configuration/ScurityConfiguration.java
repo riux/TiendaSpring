@@ -32,14 +32,14 @@ public class ScurityConfiguration  extends  WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/css/*", "/products/*","/images/*","/images/products/*" , "/js/*", "/fonts/*", "/compra/*","/index", "/nosotros/*", "/contacto/*","/usuario/*", "/login/*").permitAll()
+		.antMatchers("/css/*", "/products/*","/images/*","/images/products/*" , "/js/*", "/fonts/*").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().loginPage("/login/login").loginProcessingUrl("/login/validar")
 		.usernameParameter("nombreUsuario").passwordParameter("contrasenia")
-		.defaultSuccessUrl("/producto/listar").permitAll()
+		.defaultSuccessUrl("/compra/comprar").permitAll()
 		.and()
-		.logout().logoutUrl("/login/logout").logoutSuccessUrl("/login/login?logout")
+		.logout().logoutUrl("/logout").logoutSuccessUrl("/index")
 		.permitAll();
 		
 	}

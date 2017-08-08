@@ -36,6 +36,12 @@ public class UsuarioServiceImpl implements UsuarioService{
 		Usuario usuario = usuarioRepository.findById(id);
 		return usuario;
 	}
+
+	@Override
+	public Usuario findUsuarioByName(String name) {
+		Usuario usuario = usuarioRepository.findByNombreUsuario(name);
+		return usuario;
+	}
 	
 
 }

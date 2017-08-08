@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import com.rem.spring.model.CategoriaProductoModel;
 import com.rem.spring.service.CategoriaService;
 
 @Controller
+@PreAuthorize("hasRole('admin')")
 @RequestMapping("/categoria")
 public class CategoriaController {
 	

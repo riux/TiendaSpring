@@ -27,7 +27,7 @@ public class Rol implements Serializable {
 	private String nombre;
 	private boolean estado;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch =FetchType.EAGER)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 

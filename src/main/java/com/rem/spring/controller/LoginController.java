@@ -27,11 +27,12 @@ public class LoginController {
 		return ViewConstant.LOGIN;
 	}
 	
-	@GetMapping("/loginsuccess")
+	@GetMapping("/validar")
 	public String loginCheck() {
 		LOG.info("METHOD: loginCheck()  ");
 		LOG.info("Redirect a listar categorias");
-		return "redirect:/categoria/listar";
+		return "redirect:/producto/listar";
+		
 	}
 	
 	

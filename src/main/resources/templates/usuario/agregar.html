@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" data-layout-decorate="~{fragments/layout2}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
+<div class="top-brands" data-layout-fragment="content1">
+	<div class="register">
+		<div class="container">
+			<h2>Registrar</h2>
+			<div class="login-form-grids">
+				<h5>Información de Perfil</h5>
+				<form action="#" th:action="@{/usuario/agregar}" method="POST" th:object="${usuario}">
+					<input type="text" placeholder="First Name..." th:field="*{nombres}">
+					<input type="text" placeholder="Last Name..."  th:field="*{apellidos}">
+					<input type="hidden" th:field="*{id}"></input>
+			
+				<h6>Informacion de Login</h6>
+				
+					<input type="email" placeholder="Email Address" th:field="*{cuecorele}">
+					<input type="text" placeholder="Usuario..." th:field="*{nombreUsuario}">
+					<input type="password" placeholder="Password..." th:field="*{contrasenia}">
+					<div class="register-check-box">
+						<div class="check">
+							<label class="checkbox"><input type="checkbox"
+								name="checkbox"><i> </i>Acepto los terminos y condiciones</label>
+						</div>
+					</div>
+					<input type="submit" value="Registrar">
+				</form>
+			</div>
+			<div class="register-home">
+				<a th:href="@{/index}">Inicio</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
 
 </body>
 </html>

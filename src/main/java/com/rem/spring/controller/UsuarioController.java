@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,26 +33,23 @@ public class UsuarioController {
 		@Autowired
 		@Qualifier("usuarioServiceImpl")
 		private UsuarioServiceImpl usuarioServiceImpl;
-		
+		private BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 		
 		@GetMapping("/usuarioform")
-		public String redirectUsuarioForm( @RequestParam(name="id", required=false)int id, Model model) {
+		public String redirectUsuarioForm(Model model) {
 			LOG.info("METODO: redirectUsuarioForm() -- PARAMETORS : ");
 			
 			Usuario usuario = new Usuario();
-			if (id != 0) {
-				usuario = usuarioServiceImpl.findUsuarioById(id);
-			}
+			
 			model.addAttribute("usuario", usuario);
 			return "usuario/agregar";
 		}
-		
-		
 		
 		@PostMapping("/agregar")
 		public String agregarUroducto(@ModelAttribute(name="usuario") Usuario usuario,
 									  Model model) {
 			
+			usuario.setContrasenia(pe.encode(usuario.getContrasenia()));
 			usuario.setEstado(true);
 			LOG.info("METODO: agregarUroducto() -- PARAMETORS : " +usuario.toString());
 			

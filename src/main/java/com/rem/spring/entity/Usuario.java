@@ -30,6 +30,12 @@ public class Usuario implements Serializable {
 
 	@Column(name = "nombreUsuario")
 	private String nombreUsuario;
+	
+	@Column(name = "nombre")
+	private String nombres;
+	
+	@Column(name = "apellidos")
+	private String apellidos;
 
 	@Column(name = "contrasenia")
 	private String contrasenia;
@@ -42,8 +48,11 @@ public class Usuario implements Serializable {
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private Set<Rol> rol;
+	
+	@Column(name = "puntos")
+	private double puntos;
 
-	@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+/*	@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private Persona persona;
 
 	@OneToOne(mappedBy = "tdCuentaId", fetch = FetchType.LAZY)
@@ -51,26 +60,33 @@ public class Usuario implements Serializable {
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<Compra> compra;
-
+*/
 	public Usuario() {
-
 	}
-
-	public Usuario(Integer id, String nombreUsuario, String contrasenia, boolean estado, String cuecorele) {
+	
+	public Usuario(Integer id, String nombreUsuario, String nombres, String apellidos, String contrasenia,
+			boolean estado, double puntos) {
 		super();
 		this.id = id;
 		this.nombreUsuario = nombreUsuario;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.contrasenia = contrasenia;
+		this.estado = estado;
+		this.puntos = puntos;
+	}
+
+	public Usuario(Integer id, String nombreUsuario, String nombres, String apellidos, String contrasenia,
+			boolean estado, String cuecorele, double puntos) {
+		super();
+		this.id = id;
+		this.nombreUsuario = nombreUsuario;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
 		this.contrasenia = contrasenia;
 		this.estado = estado;
 		this.cuecorele = cuecorele;
-	}
-
-	public Usuario(Integer id, String nombreUsuario, String contrasenia, boolean estado) {
-		super();
-		this.id = id;
-		this.nombreUsuario = nombreUsuario;
-		this.contrasenia = contrasenia;
-		this.estado = estado;
+		this.puntos = puntos;
 	}
 
 	public Integer getId() {
@@ -87,6 +103,22 @@ public class Usuario implements Serializable {
 
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
+	}
+
+	public String getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	public String getContrasenia() {
@@ -121,30 +153,14 @@ public class Usuario implements Serializable {
 		this.rol = rol;
 	}
 
-	public Persona getPersona() {
-		return persona;
+	public double getPuntos() {
+		return puntos;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
-	}
-
-	public Punto getPunto() {
-		return punto;
-	}
-
-	public void setPunto(Punto punto) {
-		this.punto = punto;
-	}
-
-	public List<Compra> getCompra() {
-		return compra;
-	}
-
-	public void setCompra(List<Compra> compra) {
-		this.compra = compra;
+	public void setPuntos(double puntos) {
+		this.puntos = puntos;
 	}
 	
 	
-
+	
 }

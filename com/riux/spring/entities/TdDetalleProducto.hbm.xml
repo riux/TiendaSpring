@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26-jul-2017 13:11:43 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="bd_Tienda" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.riux.spring.entities.TdDetalleProducto" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="td_detalle_producto">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.riux.spring.entities.TdProducto" embed-xml="true" fetch="select" insert="true" name="tdProducto" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="td_producto_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="imagenUrl" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="imagenUrl"/>
+        </property>
+        <property generated="never" lazy="false" name="estado" optimistic-lock="true" type="boolean" unique="false">
+            <column name="estado" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="descripcion" optimistic-lock="true" type="string" unique="false">
+            <column length="150" name="descripcion"/>
+        </property>
+    </class>
+</hibernate-mapping>

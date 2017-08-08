@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-layout-decorate="~{fragments/layout_admin}">
+<head>
+<title>Agregar Categoría</title>
+</head>
+<body>
+
+<div class="top-brands" data-layout-fragment="content1"> 
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Contact Form</h1>
+			<br />
+			<form action="#" th:action="@{/categoria/agregar}" th:object="${categoriaModel}" method="post">
+				<input type="hidden" th:field="*{id}"></input>
+				Nombre Categoría: <input type="text" class="form-control" th:field="*{nombre}"></input> <br />
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					Aceptar
+				</button>
+
+			</form>
+			<a th:href="@{/categoria/listar}">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					Cancelar
+				</button>
+			</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

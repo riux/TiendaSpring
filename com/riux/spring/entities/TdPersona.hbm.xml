@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26-jul-2017 13:11:43 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="bd_Tienda" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.riux.spring.entities.TdPersona" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="td_persona">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.riux.spring.entities.TdUsuario" embed-xml="true" fetch="select" insert="true" name="tdUsuario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="td_cuenta_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="estado" optimistic-lock="true" type="boolean" unique="false">
+            <column name="estado" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaRegistro" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="fechaRegistro" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nombres" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="nombres" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="apePaterno" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="apePaterno" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="apeMaterno" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="apeMaterno" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="direccion" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="direccion"/>
+        </property>
+        <property generated="never" lazy="false" name="fecNacimiento" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="fecNacimiento" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="genero" optimistic-lock="true" type="string" unique="false">
+            <column length="2" name="genero" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26-jul-2017 13:11:43 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="bd_Tienda" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.riux.spring.entities.TdDetalleCompra" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="td_detalle_compra">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.riux.spring.entities.TdCompra" embed-xml="true" fetch="select" insert="true" name="tdCompra" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="td_carrito_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.riux.spring.entities.TdProducto" embed-xml="true" fetch="select" insert="true" name="tdProducto" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="td_producto_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="cantidad" optimistic-lock="true" type="int" unique="false">
+            <column name="cantidad" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

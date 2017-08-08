@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html data-layout-decorate="~{fragments/layout}">
+
+<head>
+<meta charset="UTF-8" />
+<title>Ejemplo</title>
+</head>
+<body>
+
+	<div class="top-brands" data-layout-fragment="content1">
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Edad</th>
+				</tr>
+			</thead>
+			<tbody th:each="persona : ${personas}">
+				<tr>
+					<td th:text="${persona.name}"></td>
+					<td th:text="${persona.age}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
+	<div class="newproducts-w3agile" data-layout-fragment="content2">
+	</div>
+
+
+</body>
+</html>

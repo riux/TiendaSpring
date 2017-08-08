@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html data-layout-decorate="~{fragments/layout}">
+
+<head>
+<meta charset="UTF-8" />
+<title>Ejemplo</title>
+</head>
+<body>
+
+
+<div class="top-brands" data-layout-fragment="content1">
+	<div class="top-brands">
+		<div class="container">
+		<h2>Top selling offers</h2>
+			<div class="grid_3 grid_5">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Advertised offers</a></li>
+						<li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Today Offers</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+							<div class="agile-tp">
+								<h5>Ofertas de esta semana</h5>
+								<p class="w3l-ad">Reunimos las mejopres ofertas segun tu preferencia</p>
+							</div>
+
+							<!-- 	MODAL -->
+							<div class="modal fade" id="carshop">
+								<div class="modal-dialog">
+									<div class="modal-content">
+									<!-- 	HEADDER MODAL -->
+										<div class="modal-header">
+											<button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
+											<h4 class="modal-title">Carrito de compras</h4>
+										<!-- 	BODY HEADER -->
+												<div class="modal-body" >
+
+
+
+														<div class="panel-body detalle-producto">
+					                    <table class="table">
+					                        <thead>
+					                            <tr>
+					                                <th>Descripci&oacute;n</th>
+					                                <th>Cantidad</th>
+					                                <th>Precio S/.</th>
+					                                <th>Total S/.</th>
+					                                <th></th>
+					                            </tr>
+					                        </thead>
+					                        <tbody id="bodyCarshop">
+
+					                        </tbody>
+					                    </table>
+					                    </div>
+
+
+
+												</div>
+												<!-- 	FOOTER HEADER -->
+										<div class="modal-footer">
+											<button class="btn btn-default" type="button" data-dismiss="modal" >Cerrar</button>
+											<button class="btn btn-primary" type="button" >Guardar</button>
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="agile_top_brands_grids" >
+								<div class="col-md-4 top_brand_left" th:each="producto,iterationStatus : ${productos}">
+									<div class="hover14 column">
+										<div class="agile_top_brand_left_grid">
+											<div class="agile_top_brand_left_grid_pos">
+												<img th:src="@{/images/offer.png}" alt=" " class="img-responsive" />
+											</div>
+											<div class="agile_top_brand_left_grid1">
+												<figure>
+													<div class="snipcart-item block" >
+														<div class="snipcart-thumb">
+
+															<a href="products.html"><img title=" " alt=" " th:src="${producto.imagenUrl}" /></a>
+															<p id="producto_pronom" th:text="${producto.pronom}"></p>
+															<div class="stars">
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+															</div>
+															<h4 id="producto_propre" th:text="${producto.propre}"></h4>
+														</div>
+														<div class="snipcart-details top_brand_home_details">
+															<div id="carShopModalHolder"></div>
+																<fieldset>
+																	<input type="hidden" name="cmd" value="_cart" />
+																	<input type="hidden" name="add" value="1" />
+																	<input type="hidden" name="business" value=" " />
+																	<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+																	<input type="hidden" name="amount" value="20.99" />
+																	<input type="hidden" name="discount_amount" value="1.00" />
+																	<input type="hidden" name="currency_code" value="USD" />
+																	<input type="hidden" name="return" value=" " />
+																	<input type="hidden" name="cancel_return" value=" " />
+																	<input type="submit" name="submit" value="Agregar Carrito" class="button" th:onclick="'functions : addCarShop(\'' + ${producto.propre} + '\', \'' + ${producto.id} + '\', \'' + ${producto.pronom} + '\', \'' + ${producto.imagenUrl} + '\')'" data-toggle="modal" data-target="#carshop"/>
+
+																</fieldset>
+														</div>
+													</div>
+												</figure>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

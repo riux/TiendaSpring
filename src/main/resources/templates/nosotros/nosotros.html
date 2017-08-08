@@ -1,0 +1,169 @@
+<!DOCTYPE html >
+<html data-layout-decorate="~{fragments/layout2}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+	<div class="top-brands" data-layout-fragment="content1">
+	
+	
+		<div class="about">
+		<div class="container">
+			<h3 class="w3_agile_header">Sobre Nosotros</h3>
+			<div class="about-agileinfo w3layouts">
+				<div class="col-md-8 about-wthree-grids grid-top">
+					<h4>Sobre Physalis </h4>
+					<p class="top">Contigo desde 2017. Physalis es un mercado en Internet que conecta distribuidores agrícolas con profesionales del sector que quieren comprarles directamente. </p>
+					<p>Los profesionales del agro - principalmente agricultores y ganaderos - optimizan sus compras encontrando en Agroterra los mejores distribuidores con condiciones y precios más competitivos. </p>		
+					<div class="about-w3agilerow">
+						<div class="col-md-4 about-w3imgs">
+							<img th:src="@{/images/p3.jpg}" alt="" class="img-responsive zoom-img"/>
+						</div>
+						<div class="col-md-4 about-w3imgs">
+							<img th:src="@{/images/p4.jpg}" alt=""  class="img-responsive zoom-img"/>
+						</div>
+						<div class="col-md-4 about-w3imgs">
+							<img th:src="@{/images/p3.jpg}" alt=""  class="img-responsive zoom-img"/>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 about-wthree-grids">
+					<div class="offic-time">
+						<div class="time-top">
+							<h4>Presentamos :</h4>
+						</div>
+						<div class="time-bottom">
+							<h5>Somos tradicionales </h5>
+							<h5>y confiables</h5>
+							<p>Cuando se completa un pedido, el comprador puede valorar el servicio del distribuidor,  </p>
+						</div>
+					</div>
+					<div class="testi">
+						<h3 class="w3_agile_header">Testimonios</h3>
+						<!--//End-slider-script -->
+						<script src="js/responsiveslides.min.js"></script>
+						 <script>
+							// You can also use "$(window).load(function() {"
+							$(function () {
+							  // Slideshow 5
+							  $("#slider5").responsiveSlides({
+								auto: true,
+								pager: false,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+								  $('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+								  $('.events').append("<li>after event fired.</li>");
+								}
+							  });
+						
+							});
+						  </script>
+						<div  id="top" class="callbacks_container">
+							<ul class="rslides" id="slider5">
+								<li>
+									<div class="testi-slider">
+										<h4>" ESTOY MUY SATISFECHO.</h4>
+										<p>El producto me ha llegado con satisfacción y sin retrasos.</p>
+										<div class="testi-subscript">
+											<p><a href="#">John Doe,</a>Adipiscing</p>
+											<span class="w3-agilesub"> </span>
+										</div>	
+									</div>
+								</li>
+							</ul>	
+						</div>
+					</div>
+				</div>	
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //about -->
+	<!-- about-slid -->
+	
+	<!-- //about-slid -->
+	<!-- about-team -->
+	<div class="about-team"> 
+		<div class="container">
+			<h3 class="w3_agile_header">Conozca a nuestro equipo</h3>
+			<div class="team-agileitsinfo">
+				<div class="col-md-3 about-team-grids">
+					<img width="250" height="335" th:src="@{/images/20645814_1361407740616507_181370287_n.jpg}" alt=""/>
+					<div class="team-w3lstext">
+						<h4><span>DENNIS,</span> Administrador</h4>
+						<p>Contamos con un equipo profesionar en nuestro mercado, para brindarles el mejor servicio</p>
+					</div>
+					<div class="social-icons caption"> 
+						<ul>
+							<li><a href="#" class="fa fa-facebook facebook"> </a></li>
+							<li><a href="#" class="fa fa-twitter twitter"> </a></li>
+							<li><a href="#" class="fa fa-google-plus googleplus"> </a></li> 
+						</ul>
+						<div class="clearfix"> </div>  
+					</div>
+				</div>
+				<div class=" col-md-3 about-team-grids">
+					<img width="250" height="335" th:src="@{/images/20663458_1361407913949823_880757833_o.jpg}" alt=""/>
+					<div class="team-w3lstext">
+						<h4><span>MIGUEL,</span> Director</h4>
+						<p>Profesional en tecnologías de informacion y el comercio electronico.</p>
+					</div>
+					<div class="social-icons caption"> 
+						<ul>
+							<li><a href="#" class="fa fa-facebook facebook"> </a></li>
+							<li><a href="#" class="fa fa-twitter twitter"> </a></li>
+							<li><a href="#" class="fa fa-google-plus googleplus"> </a></li> 
+						</ul>
+						<div class="clearfix"> </div>  
+					</div>
+				</div>
+				<div class="col-md-3 about-team-grids">
+					<img   width="250" height="335" th:src="@{/images/20668079_1361407737283174_399047270_n.jpg}" alt=""/>
+					<div class="team-w3lstext">
+						<h4><span>LUIS,</span> Supervisior</h4>				
+						<p>Ingeniero en control de calidad, eficiencia y eficacia de productos, qeu garantiza un buen producto</p>
+					</div>
+					<div class="social-icons caption"> 
+						<ul>
+							<li><a href="#" class="fa fa-facebook facebook"> </a></li>
+							<li><a href="#" class="fa fa-twitter twitter"> </a></li>
+							<li><a href="#" class="fa fa-google-plus googleplus"> </a></li> 
+						</ul>
+						<div class="clearfix"> </div>  
+					</div>
+				</div>
+				<div class="col-md-3 about-team-grids">
+					<img width="250" height="335" th:src="@{/images/20667991_1361407720616509_720978756_n.jpg}" alt=""/>
+					<div class="team-w3lstext">
+						<h4><span>ANCELMO,</span> Staff</h4>
+						<p>Ingeniero en gronomo especialista en la producción y elaboración de los productos qeu ofrecemos</p>
+					</div>
+					<div class="social-icons caption"> 
+						<ul>
+							<li><a href="#" class="fa fa-facebook facebook"> </a></li>
+							<li><a href="#" class="fa fa-twitter twitter"> </a></li>
+							<li><a href="#" class="fa fa-google-plus googleplus"> </a></li> 
+						</ul>
+						<div class="clearfix"> </div>  
+					</div>
+				</div>
+					
+				
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	
+	</div>
+	
+</body>
+</html>

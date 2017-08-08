@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26-jul-2017 13:11:43 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="bd_Tienda" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.riux.spring.entities.TdCompra" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="td_compra">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.riux.spring.entities.TdUsuario" embed-xml="true" fetch="select" insert="true" name="tdUsuario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="td_usuario_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="cantidad" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="cantidad"/>
+        </property>
+        <property generated="never" lazy="false" name="preciototal" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="preciototal" precision="16" scale="4"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="tdDetalleCompras" optimistic-lock="true" sort="unsorted" table="td_detalle_compra">
+            <key on-delete="noaction">
+                <column name="td_carrito_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.riux.spring.entities.TdDetalleCompra" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

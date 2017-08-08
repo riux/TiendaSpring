@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-layout-decorate="~{fragments/layout_admin}">
+<head>
+<meta charset="utf-8" />
+<title>Agregar Producto</title>
+
+
+</head>
+<body>
+
+
+<div class="top-brands" data-layout-fragment="content1">
+
+	<div class="register">
+		<div class="container">
+			<h2>Registrar producto</h2>
+			<div class="login-form-grids">
+				<form action="#" th:action="@{/producto/agregar}" method="POST" th:object="${producto}"  enctype="multipart/form-data">
+					<input type="text" class="form-control" th:field="*{pronom}" placeholder="Nombre producto..." > 
+					<input type="text" class="form-control" th:field="*{descripcion}" placeholder="Descripción..." > <br />
+					<input type="text" class="form-control" th:field="*{propre}" placeholder="Precio..." > <br />
+					<input type="text" class="form-control" th:field="*{stock}" placeholder="Stock..." > <br />
+<!-- 					<input type="text" class="form-control" th:field="*{imagenUrl}" placeholder="URL imagen..." > <br /> -->
+
+						<div class="form-group">
+							<label for="exampleInputFile">Imagen</label>
+							<center>
+								<input type="file" name="imagen" id="imagen" />
+							</center>
+							<p class="help-block">Seleccione una Imagen</p>
+						</div>
+
+
+						<div class="form-group">
+	                    <div >
+							<div class="input-group">
+								<select id="categoria" name="categoria" class="form-control">
+									<option th:each="categoria : ${categorias}" th:value="${{categoria}}" th:text="${categoria.nombre}">Categorias</option>
+								</select>
+								<span class="input-group-addon">
+									<label class="col-lg-2 control-label">Categorías</label>
+								</span>
+							</div>
+	                    </div>
+                	</div>
+					
+					<br />
+					
+					<input type="submit" value="Agregar">
+				</form>
+			</div>
+			<div class="register-home">
+				<a href="i#" th:href="@{/producto/listar}">Cancelar</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

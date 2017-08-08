@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26-jul-2017 13:11:43 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="bd_Tienda" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.riux.spring.entities.TdProducto" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="td_producto">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.riux.spring.entities.TdCategoriaProducto" embed-xml="true" fetch="select" insert="true" name="tdCategoriaProducto" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="td_tipo_producto_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="pronom" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="pronom" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="proest" optimistic-lock="true" type="boolean" unique="false">
+            <column name="proest" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="propre" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="propre" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="tdDetalleCompras" optimistic-lock="true" sort="unsorted" table="td_detalle_compra">
+            <key on-delete="noaction">
+                <column name="td_producto_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.riux.spring.entities.TdDetalleCompra" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="tdDetalleProductos" optimistic-lock="true" sort="unsorted" table="td_detalle_producto">
+            <key on-delete="noaction">
+                <column name="td_producto_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.riux.spring.entities.TdDetalleProducto" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

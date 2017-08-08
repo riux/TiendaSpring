@@ -20,7 +20,7 @@ import com.rem.spring.service.CategoriaService;
 import com.rem.spring.service.ProductoService;
 
 @Controller
-@PreAuthorize("permitAll()")
+//@PreAuthorize("permitAll()")
 @RequestMapping("/")
 public class IndexController {
 
@@ -35,6 +35,8 @@ public class IndexController {
 	@Qualifier("categoriaProductoImpl")
 	private CategoriaService categoriaService;
 	
+	
+	//@PreAuthorize("permitAll()")
 	@GetMapping("/index")
 	public ModelAndView Index(@RequestParam(name="categoria", required=false) CategoriaProducto categoria ) {
 		ModelAndView mav = new ModelAndView(ViewConstant.INDEX);

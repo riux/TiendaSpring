@@ -25,7 +25,7 @@ import com.rem.spring.service.impl.FileUploadService;
 import com.rem.spring.service.impl.UsuarioServiceImpl;
 
 @Controller
-@PreAuthorize("permitAll()")
+//@PreAuthorize("permitAll()")
 @RequestMapping("/usuario")
 public class UsuarioController {
 	

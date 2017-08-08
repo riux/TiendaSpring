@@ -23,7 +23,7 @@ import com.rem.spring.service.ProductoService;
 import com.rem.spring.service.impl.FileUploadService;
 
 @Controller
-@PreAuthorize("hasRole('admin')")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/producto")
 public class ProductoController {
 

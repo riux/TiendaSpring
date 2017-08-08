@@ -2,13 +2,13 @@
 $(document).ready(function(){
 
 	mostrarDatosCarShop();
-	$("#compraform").submit(function(event) {
-	    // Prevent the form from submitting via the browser.
-	    event.preventDefault();
+	
+	$("#compraform").submit(function(event){
+		event.preventDefault();
 	    passData();
 	    console.log("funcion prevent");
-	  });
-
+	});
+	
 });
 
 
@@ -109,7 +109,7 @@ function limpiarCampos() {
            sessionStorage.clear();
            location.assign("http://localhost:8080/compra/success");
          }
-});
+	 	});
 
   }
 

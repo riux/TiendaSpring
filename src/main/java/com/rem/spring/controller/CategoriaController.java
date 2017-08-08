@@ -19,65 +19,66 @@ import com.rem.spring.model.CategoriaProductoModel;
 import com.rem.spring.service.CategoriaService;
 
 @Controller
-@PreAuthorize("hasRole('admin')")
+
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/categoria")
 public class CategoriaController {
-	
+
 	private static final Log LOG = LogFactory.getLog(CategoriaController.class);
-	
+
 	@Autowired
 	@Qualifier("categoriaProductoImpl")
 	private CategoriaService categoriaService;
-	
+
 	@GetMapping("/listarc")
 	public String redirectListar() {
 		return ViewConstant.CATEGORIA_LISTAR;
 	}
-	
-	
+
+
 	@GetMapping("/agregarform")
 	public String redirectCategoriaForm( @RequestParam(name="id", required=false)int id, Model model) {
-		
+
 		CategoriaProductoModel categoriaProductoModel = new CategoriaProductoModel();
 		if (id != 0) {
 			categoriaProductoModel = categoriaService.findCategoriaByIdModel(id);
 		}
-		
+
 		model.addAttribute("categoriaModel", categoriaProductoModel);
 		return ViewConstant.CATEGORIA_AGREGAR;
 	}
-	
+
 	@PostMapping("/agregar")
 	public String agregarCategoria(@ModelAttribute(name="categoriaModel") CategoriaProductoModel categoriaProductoModel,
 									Model model) {
 		categoriaProductoModel.setEstado(true);
 		LOG.info("METHOD: agregarCategoria() -- PARAMS: " +categoriaProductoModel.toString());
-		
+
 		if (categoriaService.agregarCategoriaProducto(categoriaProductoModel)!= null) {
 			model.addAttribute("result", 1);
 		} else {
 			model.addAttribute("result", 0);
 		}
-		
+
 		return "redirect:/categoria/listar";
 	}
-	
+
 	@GetMapping("/listar")
 	public ModelAndView listarCategorias() {
 		ModelAndView mav = new ModelAndView(ViewConstant.CATEGORIA_LISTAR);
-		
+
 //		User usuario = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //		mav.addObject("usuario", usuario.getUsername());
-		
-		mav.addObject("categorias", categoriaService.listarCategoria());	
+
+		mav.addObject("categorias", categoriaService.listarCategoria());
 		return mav;
 	}
-	
+
 	@GetMapping("/eliminar")
 	public ModelAndView eliminarCategoria(@RequestParam(name="id", required=true)int id) {
 		categoriaService.removeCategoria(id);
 		return listarCategorias();
 	}
-	
+
 
 }

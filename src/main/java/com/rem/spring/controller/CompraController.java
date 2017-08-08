@@ -40,13 +40,12 @@ public class CompraController {
 
 	private static final Log LOG = LogFactory.getLog(CategoriaController.class);
 	
-	@PreAuthorize("permitAll()")
+	//@PreAuthorize("permitAll()")
 	@GetMapping("/carshop")
 	public String verificarCarShop() {
 
 		return "compra/carshop";
 	}
-	
 	
 	
 	@GetMapping("/comprar")
@@ -57,17 +56,31 @@ public class CompraController {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String nombre = user.getUsername();
 		Usuario usuario = usuarioServiceImpl.findUsuarioByName(nombre);
+		
+		mav.addObject("nombre", nombre);
+		mav.addObject("puntos", usuario.getPuntos());
 		mav.addObject("usuario", usuario);
+		
 		return mav;
 	}
-	@PreAuthorize("permitAll()")
+	//@PreAuthorize("permitAll()")
 	@PostMapping("/pago")
 	public void pago(@RequestBody List<ProductoCar> productos) {
+		
+		LOG.info("PAGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ");
+		
 		Producto producto = new Producto();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String nombre = user.getUsername();
+		Usuario usuario = usuarioServiceImpl.findUsuarioByName(nombre);
+		double puntos = usuario.getPuntos();
+		double punt = 0;
 		for (ProductoCar productoCar : productos) {
 			producto = productoService.findProductoById(productoCar.getId());
 			double nuevoStock = producto.getStock() - Double.parseDouble(productoCar.getCantidad());
+			punt +=  producto.getPropre();
 			producto.setStock(nuevoStock);
+			
 			if (productoService.agregarProducto(producto) != null) {
 				LOG.info("METHOD: SE REALIZO LA COMPRA   ");
 				
@@ -75,13 +88,23 @@ public class CompraController {
 				LOG.info("METHOD: SE REALIZO LA COMPRA   ");
 			}
 		}
+		LOG.info("valor : VALOR PUT   " + punt);
+		usuario.setPuntos(puntos-punt);
+		usuarioServiceImpl.agregarUsuario(usuario);
 
 	}
-	@PreAuthorize("permitAll()")
+	//@PreAuthorize("permitAll()")
 	@GetMapping("/success")
-	public String success() {
-
-		return "compra/success";
+	public ModelAndView success() {
+		ModelAndView mav = new ModelAndView();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String nombre = user.getUsername();
+		Usuario usuario = usuarioServiceImpl.findUsuarioByName(nombre);
+		
+		mav.addObject("nombre", nombre);
+		mav.addObject("puntos", usuario.getPuntos());
+		mav.addObject("usuario", usuario);
+		return mav;
 	}
 
 }

@@ -10,9 +10,11 @@
 
 	<div class="checkout">
 		<div class="container">
-<!-- 			<h2 th:text="${usuario.nombreUsuario}">Contenido de su carrito de compras: <span>Productos</span></h2> -->
+			<h2 >Bienvenido:  <span th:text="${nombre}">Productos</span></h2>
 
-			<form id="compraform" th:object="${usuario}">
+			<h2 >Tienes:  <span th:text="${puntos}"></span> Puntos </h2>
+
+			<form id="compraform" >
 				<div class="checkout-right">
 					<table class="timetable_sub">
 						<thead>
@@ -36,8 +38,9 @@
 				</br>
 <!-- 				Puntos: <input type="text" placeholder="Usuario..." th:field="${usuario.punto}"> -->
 				</br>
-				<input type="submit" class="btn btn-primary"  value="Comprar" />
+				<input  type="submit" class="btn btn-primary"  value="Comprar" />
 			</form>
+
 			<div class="checkout-left">
 				<div class="checkout-left-basket">
 					<h4>Contenido de su carrito</h4>

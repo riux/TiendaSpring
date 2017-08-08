@@ -2,9 +2,11 @@ package com.rem.spring.service;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
+
 import com.rem.spring.entity.CategoriaProducto;
 import com.rem.spring.model.CategoriaProductoModel;
-
+//@PreAuthorize("permitAll()")
 public interface CategoriaService {
 	
 	public abstract CategoriaProductoModel agregarCategoriaProducto(CategoriaProductoModel categoriaModel);
